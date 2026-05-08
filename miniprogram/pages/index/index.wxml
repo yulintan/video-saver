@@ -1,0 +1,48 @@
+<view class="container">
+
+  <!-- Step 1: input -->
+  <view wx:if="{{!videoUrl}}">
+    <view class="title">抖音无水印下载</view>
+    <view class="subtitle">粘贴分享链接预览视频</view>
+    <textarea
+      class="input"
+      value="{{url}}"
+      bindinput="onInput"
+      placeholder="粘贴抖音分享链接..."
+      auto-height
+      maxlength="-1"
+    />
+    <button class="btn" bindtap="onResolve" loading="{{loading}}" disabled="{{loading}}">
+      {{loading ? '解析中...' : '预览视频'}}
+    </button>
+    <view wx:if="{{error}}" class="status error">{{error}}</view>
+  </view>
+
+  <!-- Step 2: preview + download -->
+  <view wx:if="{{videoUrl}}">
+    <video
+      class="player"
+      src="{{videoUrl}}"
+      controls
+      autoplay
+      show-fullscreen-btn
+      show-play-btn
+    />
+
+    <view wx:if="{{!downloading && !saved}}">
+      <button class="btn" bindtap="onDownload">下载到相册</button>
+      <button class="btn-secondary" bindtap="onReset">重新输入</button>
+    </view>
+
+    <view wx:if="{{downloading}}" class="progress-wrap">
+      <text class="progress-label">下载中 {{progress}}%</text>
+      <progress percent="{{progress}}" stroke-width="6" activeColor="#fe2c55" />
+    </view>
+
+    <view wx:if="{{saved}}" class="status success">
+      ✓ 已保存到相册
+      <button class="btn-secondary" style="margin-top:16rpx" bindtap="onReset">下载另一个</button>
+    </view>
+  </view>
+
+</view>

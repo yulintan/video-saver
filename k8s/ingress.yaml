@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: video-saver
+  namespace: video-saver
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: video-saver.yulin.ca
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: video-saver
+                port:
+                  number: 80

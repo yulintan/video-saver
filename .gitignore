@@ -1,0 +1,14 @@
+.env
+downloads/
+cookies.txt
+export-cookies.sh
+video-saver
+
+# wechat devtools - generated locally
+miniprogram/project.config.json
+miniprogram/project.private.config.json
+project.config.json
+project.private.config.json
+
+# claude
+.claude/

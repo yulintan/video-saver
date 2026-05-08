@@ -1,0 +1,11 @@
+.git
+.env
+.claude
+cookies.txt
+export-cookies.sh
+downloads/
+Makefile
+k8s/
+miniprogram/
+README.md
+*.sh

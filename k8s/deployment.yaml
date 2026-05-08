@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: video-saver
+  namespace: video-saver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: video-saver
+  template:
+    metadata:
+      labels:
+        app: video-saver
+    spec:
+      containers:
+        - name: video-saver
+          image: liuzuocai/video-saver:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HOST
+              value: https://video-saver.yulin.ca
+          resources:
+            requests:
+              memory: 64Mi
+            limits:
+              memory: 256Mi
