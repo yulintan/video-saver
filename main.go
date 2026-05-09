@@ -77,7 +77,7 @@ func home(w http.ResponseWriter, r *http.Request) {
   <h2>抖音下载</h2>
   <textarea id="url" rows="4" placeholder="粘贴抖音分享链接..."></textarea>
   <button id="btn" onclick="resolve()">预览</button>
-  <video id="player" controls></video>
+  <video id="player" controls preload="metadata"></video>
   <div id="status"></div>
   <script>
     async function resolve() {

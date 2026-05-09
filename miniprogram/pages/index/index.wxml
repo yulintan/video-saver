@@ -24,7 +24,6 @@
       class="player"
       src="{{videoUrl}}"
       controls
-      autoplay
       show-fullscreen-btn
       show-play-btn
     />

@@ -15,15 +15,15 @@ spec:
     spec:
       containers:
         - name: video-saver
-          image: liuzuocai/video-saver:latest
+          image: registry.gitlab.com/liuzuocai/video-saver:latest
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
-          env:
-            - name: HOST
-              value: https://video-saver.yulin.ca
+          envFrom:
+            - secretRef:
+                name: video-saver-env
           resources:
             requests:
               memory: 64Mi
             limits:
               memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
